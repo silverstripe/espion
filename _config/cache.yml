@@ -1,0 +1,15 @@
+---
+Name: project-watcher-cache
+Only:
+  environment: dev
+---
+SilverStripe\Core\Injector\Injector:
+  Psr\SimpleCache\CacheInterface.projectwatcher:
+    factory: SilverStripe\Core\Cache\CacheFactory
+    constructor:
+      namespace: "ProjectWatcher"
+  Psr\SimpleCache\CacheInterface.composerwatcher:
+    factory: SilverStripe\Core\Cache\CacheFactory
+    constructor:
+      namespace: "ComposerWatcher"
+

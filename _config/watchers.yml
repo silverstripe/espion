@@ -1,0 +1,16 @@
+---
+Name: project-watcher-watchers
+Only:
+  environment: dev
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\ProjectWatcher\DirectoryWatcher:
+    properties:
+      paths: [ 'app' ]
+      match: [ '*.php', '*.yml' ]
+  SilverStripe\ProjectWatcher\ComposerDependencyWatcher:
+    constructor:
+      cache: '%$Psr\SimpleCache\CacheInterface.composerwatcher'
+    properties:
+      paths: ['src', 'code']
+      match: ['*.php', '*.yml']

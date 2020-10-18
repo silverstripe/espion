@@ -1,0 +1,13 @@
+---
+Name: project-watcher-config
+Only:
+  environment: 'dev'
+---
+SilverStripe\Core\Injector\Injector:
+  SilverStripe\ProjectWatcher\ProjectWatcher:
+    constructor:
+      cache: '%$Psr\SimpleCache\CacheInterface.projectwatcher'
+    properties:
+      watchers:
+        project: '%$SilverStripe\ProjectWatcher\DirectoryWatcher'
+        dependencies: '%$SilverStripe\ProjectWatcher\ComposerDependencyWatcher'
